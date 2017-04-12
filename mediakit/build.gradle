@@ -17,13 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    externalNativeBuild {
-        ndkBuild {
-            path 'src/main/jni/Android.mk'
-        }
-    }
+}
+
+repositories {
+    jcenter({url "http://jcenter.bintray.com/flurgle/maven"})
 }
 
 dependencies {
-    compile files('src/main/jni/swig/libwebp.jar')
+    compile 'social.gogopop:libwebp:0.1.3'
 }

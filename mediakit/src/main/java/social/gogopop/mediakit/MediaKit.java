@@ -1,7 +1,6 @@
 package social.gogopop.mediakit;
 
 import android.content.Context;
-import android.util.Log;
 
 public class MediaKit {
 
@@ -9,12 +8,6 @@ public class MediaKit {
 
     public static void init(Context context) {
         MediaKit.context = context.getApplicationContext();
-
-        try {
-            new MKWebP(context.getAssets().open("test.webp"));
-        } catch (Exception e) {
-            Log.e("Flurgle", e.toString());
-        }
     }
 
     static Context getContext() {

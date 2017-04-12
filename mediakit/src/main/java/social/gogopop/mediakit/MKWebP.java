@@ -12,6 +12,8 @@ import java.nio.ByteBuffer;
 
 public class MKWebP {
 
+    private Bitmap bitmap;
+
     public MKWebP(InputStream inputStream) {
         byte[] bytes = null;
         try {
@@ -20,12 +22,17 @@ public class MKWebP {
             Log.e("Flurgle", e.toString());
         }
 
+
         if (bytes != null) {
-            Bitmap bitmap = webpToBitmap(bytes);
+            bitmap = webpToBitmap(bytes);
             Log.v("Flurgle", bitmap.getWidth() + " " + bitmap.getHeight());
         } else {
             Log.v("Flurgle", "bytes null");
         }
+    }
+
+    public Bitmap get() {
+        return bitmap;
     }
 
     private byte[] readInputStream(InputStream inputStream) throws IOException {
@@ -42,7 +49,7 @@ public class MKWebP {
         return buffer.toByteArray();
     }
 
-    static {
+    static{
         System.loadLibrary("webp");
     }
 
